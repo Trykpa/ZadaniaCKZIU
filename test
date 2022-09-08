@@ -1,0 +1,49 @@
+alphaa = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+         'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X',
+         'Y', 'Z']
+array1 = ["J", "K", "L", "K", "P", "I", "J", "E", "P", "T"]
+class Zlot:
+
+    def __init__(self, arr, a):
+        self.array1 = arr
+        self.alphaa = a
+
+    def sort(self):
+        for j in range(0, len(self.array1)):
+            for i in range(0, len(self.array1)):
+                _sorted = False
+                if i != len(self.array1) - 1:
+                    for k in range(0, len(self.array1[i])):
+                        if not _sorted:
+                            if k != (len(self.array1[i]) and len(self.array1[i + 1])):
+                                if self.alphaa.index(self.array1[i][k]) > self.alphaa.index(self.array1[i + 1][k]):
+                                    self.array1[i], self.array1[i + 1] = self.array1[i + 1], self.array1[i]
+                                    _sorted = True
+
+                                elif self.alphaa.index(self.array1[i][k]) < self.alphaa.index(self.array1[i + 1][k]):
+                                    _sorted = True
+
+                                else:
+                                    if len(self.array1[i + 1]) < len(self.array1[i]):
+                                        self.array1[i], self.array1[i + 1] = self.array1[i + 1], self.array1[i]
+                                        _sorted = True
+        print(self.array1)
+
+
+    def wyszkiwanie(self):
+        array2 = self.array1
+        podwojne = 0
+
+        n = len(array2)
+        for i in range(n):
+            for j in range(n - i - 1):
+                if self.alphaa.index(array2[i]) == self.alphaa.index(array2[i + 1]):
+                    podwojne = podwojne + 1
+                    print(array2[i])
+                    array2[i], array2[i + 1] = array2[i + 1], array2[i]
+                    break
+
+        print(podwojne)
+
+
+z1 = Zlot(alphaa, array1)
